@@ -1,0 +1,229 @@
+body {
+	background: #e2e2e2;
+}
+
+.navbar--li {
+	margin-left: auto;
+}
+
+.primary {
+	/*background:rgb(73, 68, 68);*/
+	background: rgb(31, 18, 48)
+}
+
+.banner {
+	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+		url('/img/banner.jpg');
+	background-size: cover;
+	width: 100%;
+	height: 100vh;
+	color: white;
+}
+
+.mycard {
+	padding: 20px;
+	background: white;
+	color: #808080;
+}
+
+.main-head {
+	height: 150px;
+	background: #FFF;
+}
+
+.sidenav {
+	height: 100%;
+	background-color: #000;
+	overflow-x: hidden;
+	padding-top: 20px;
+}
+
+.main {
+	padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+	.sidenav {
+		padding-top: 15px;
+		margin: 0;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.login-form {
+		margin-top: 10%;
+	}
+	.register-form {
+		margin-top: 10%;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.main {
+		margin-left: 40%;
+	}
+	.sidenav {
+		width: 40%;
+		position: fixed;
+		/*  z-index: 1;*/
+		top: 0;
+		left: 0;
+		margin: 3.2rem 2rem 0 0;
+	}
+	.login-form {
+		margin-top: 80%;
+	}
+	.register-form {
+		margin-top: 20%;
+	}
+}
+
+.login-main-text {
+	margin-top: 20%;
+	padding: 60px;
+	color: #fff;
+}
+
+.login-main-text h2 {
+	font-weight: 300;
+}
+
+.btn-black {
+	background-color: #000 !important;
+	color: #fff;
+}
+
+.sidebar {
+	display:flex;
+	justify-content:center;
+	width: 25%;
+	height: 100%;
+	border: 1px solid black;
+	box-shadow: 2px 2px 10px 0px black;
+	padding: 1rem;
+	background: #fff;
+}
+
+.content {
+	
+	flex:1;
+	position: relative;
+}
+
+.nav-list li {
+	list-style-type: none;
+	padding: 10px;
+	font-size: 1.3rem;
+}
+
+.nav-list li a {
+	display: block;
+	text-decoration: none;
+	padding: 1rem;
+}
+
+.nav-list li a:hover {
+	color: #0a58ca;
+	background: #888888;
+	/* padding: .5rem;*/
+	color: white;
+}
+
+.nav-list li a i {
+	margin-right: .5rem;
+}
+
+.close {
+	font-size: 2rem;
+}
+
+.bar i {
+	font-size: 2rem;
+	margin: 2.5rem;
+}
+
+.nav-list {
+	padding: 1rem;
+}
+
+.close {
+	order: 2;
+	margin: 1rem +1rem 1rem 2rem;
+	cursor: pointer;
+}
+
+.sidebar-main {
+	height: 100vh;
+    display: flex;
+	
+}
+.btn_custom>button{
+    margin: 0 1rem 0 0;
+}
+/*declartions for user dashboard-> add_contacts*/
+.input-group-text i{
+	padding:.6rem;
+}
+.contact_img{
+	width:40px;
+	height:40px;
+	object-fit:cover;
+	border-radius:50%;
+}
+@media
+only
+screen
+and
+(max-width:
+600px)
+{
+	
+.sidebar {
+	display: none; 
+	width : 100vw;
+	height: 100%;
+	border: 1px solid black;
+	padding: 1rem;
+	
+}
+.sidebar-main {
+	
+    display: block;
+	
+}
+
+body {
+	background-color: lightblue;
+}
+
+}
+
+#wrapper
+{
+ text-align:center;
+ margin:0 auto;
+ padding:0px;
+ width:995px;
+}
+#output_image
+{
+ max-width:300px;
+}
+.bar{
+	position: absolute;
+    color: white;
+    top: 1rem;
+    z-index: 2;
+}
+
+.search{
+	position: relative;
+}
+
+.search-result{
+	position:absolute;
+	width:100%;
+	padding:10px;
+	border:1px solid gray;
+	
+}

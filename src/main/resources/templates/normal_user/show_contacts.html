@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal_user/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title></title>
+
+</head>
+<body>
+	<section>
+
+		<div class="container">
+
+			<h3 class="text-center m-3">
+				Hi <span th:text="${user.name}"></span> your contacts
+			</h3>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div th:if="${session.msg}" th:classappend="${session.msg.type}"
+						class="alert text-center" role="alert">
+						<p th:text="${session.msg.msg}"></p>
+						<th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+					</div>
+					<div class="input-group input-group-lg search" style="margin:1rem 0;">
+							<input type="text" class="form-control"
+								aria-label="Sizing example input"
+								aria-describedby="inputGroup-sizing-lg" placeholder="Search Here">
+						<div class="search-result">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo veniam quibusdam ipsa eveniet officia minus necessitatibus. Reiciendis blanditiis ut ad quo mollitia quisquam sunt sapiente modi. Quod totam iure ea.</p>
+						</div>				
+						</div>
+					
+					<div class="card">
+						
+						<div class="card-body">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th scope="col">#Id</th>
+										<th scope="col">Name</th>
+										<th scope="col">Email</th>
+										<th scope="col">Phone</th>
+										<th scope="col">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									<!-- repeat this tr to show list -->
+
+									<tr th:each="c:${contacts}">
+										<th scope="row" th:text="${'SCM'+c.cId}"></th>
+										<td><img class="contact_img"
+											th:src="@{'/img/'+${c.imageUrl}}" alt="profile photo" /> <span
+											th:text="${c.name}"></span></td>
+										<!-- <td><a th:text="${c.email}" th:href="@{'/user/contact/'+${c.cId}}"></a></td> -->
+										<td><a th:text="${c.email}"
+											th:href="@{'/user/'+${c.cId}+'/contact/'}"></a></td>
+										<td th:text="${c.phone}"></td>
+										<td>
+											<div class="btn-group btn_custom" role="group"
+												aria-label="Basic mixed styles example">
+												<a th:href="@{'/user/'+${c.cId}+'/contact/'}"><button
+														type="button" class="btn btn-danger"
+														style="margin-right: 15px;">Detail</button></a> <a
+													th:onclick="|deleteContact(${c.cId})|">
+													<button type="button" class="btn btn-warning">Delete</button>
+												</a> <a th:href="@{'/user/contact/'+${c.cId}+'/update/'}">
+													<button type="button" class="btn btn-danger">Update</button>
+												</a>
+
+
+												<!-- <button type="button" class="btn btn-success">Right</button> -->
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="col-md-4 offset-md-8">
+								<nav aria-label="Page navigation example">
+									<ul class="pagination">
+										<li th:if="${currentpage!=0}" class="page-item"><a
+											class="page-link" href="#"
+											th:href="@{'/user/show_contacts/'+${currentpage-1}}">Previous</a></li>
+										<li th:classappend="${currentpage==i-1?'active':''}"
+											th:each="i:${#numbers.sequence(1,totalpages)}"
+											class="page-item"><a class="page-link"
+											th:href="@{'/user/show_contacts/'+${i-1}}"><span
+												th:text="${i}"></span></a></li>
+
+										<li th:if="${currentpage+1!=totalpages}" class="page-item"><a
+											class="page-link" href="#"
+											th:href="@{'/user/show_contacts/'+${currentpage+1}}">Next</a></li>
+									</ul>
+								</nav>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+
+		</div>
+
+		<script>
+			
+		</script>
+	</section>
+</body>
+</html>

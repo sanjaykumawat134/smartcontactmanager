@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal_user/base::layout(~{::section})">
+<meta charset="ISO-8859-1">
+
+</head>
+<body>
+	<section>
+		<div class="container">
+		<div class="d-flex justify-content-center m-5">
+		<img class=""th:src="@{/img/default.png}" alt="profile photo" />
+		</div>
+			<table class="table table-hover table-dark m-3">
+				<tbody>
+					<tr class="p-2">
+						<th scope="row">ID</th>
+						<td th:text="'SCM'+${user.id}"></td>
+
+					</tr>
+					<tr class="p-2">
+						<th scope="row">Name</th>
+						<td th:text="${user.name}"></td>
+					</tr>
+					<tr class="p-2">
+						<th scope="row">Email</th>
+						<td th:text="${user.email}"></td>
+					</tr>
+					<tr class="p-2">
+						<th scope="row">Role</th>
+						<td th:text="${user.role}"></td>
+					</tr>
+					<tr class="p-2">
+						<th scope="row">Active Status</th>
+						<td th:text="${user.isenabled}"></td>
+					</tr>
+					<tr class="p-2">
+						<th scope="row">About</th>
+						<td th:text="${user.about}"></td>
+					</tr>
+					<tr>
+						<th scope="row">Number Of Contacts</th>
+						<td th:text="${numberOfContacts}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+</body>
+</html>

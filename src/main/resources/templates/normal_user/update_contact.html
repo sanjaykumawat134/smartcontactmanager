@@ -1,0 +1,141 @@
+ 
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal_user/base::layout(~{::section})">
+<head>
+ <meta charset=UTF-8>
+<title></title>
+</head>
+<body>
+	<h1 class="text-center">UPDATE YOUR CONTACT</h1>
+	<section>
+
+		<div class="container">
+			<div class="form">
+				<div class="row">
+					<div class="col-md-8 offset-md-2 p-3">
+						<h1 class="text-center m-2">UPDATE CONTACT</h1>
+						<!-- message for confirmation  -->
+						<div th:if="${session.msg}" th:classappend="${session.msg.type}">
+							<h4 class="text-center p-2" th:text="${session.msg.msg}"></h4>
+							<th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+						</div>
+						<form th:action="@{/user/contact/process_updatedcontact}" th:object="${contact}"
+							enctype="multipart/form-data" method="post" name="form1">
+							<div class="form-group m-2">
+							<div style="display: flex; justify-content: center;">
+							<img class=""  id="output_image" style="width:250px;height:250px; border-radius:50%;"th:src="@{'/img/'+${contact.imageUrl}}" alt="profile photo" />
+							
+							</div>
+							<input type="hidden" name="cId" th:value="${contact.cId}">
+								<label for="exampleInputEmail1">Name</label>
+								<div class="input-group mb-2">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i class="fas fa-user"></i>
+										</div>
+									</div>
+									<input type="text" class="form-control"
+										id="exampleInputText" aria-describedby="emailHelp"
+										placeholder="Enter first name" name="name" th:value="${contact.name}">
+								</div>
+
+							</div>
+							<div class="form-group m-2">
+								<label for="exampleInputEmail1">Middle Name</label>
+								<div class="input-group mb-2">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i class="fas fa-plus"></i>
+										</div>
+									</div>
+									<input type="text" class="form-control" id="exampleInputText"
+										aria-describedby="emailHelp" placeholder="middle name"
+										name="middleName" th:value="${contact.middleName}">
+								</div>
+
+							</div>
+							<div class="form-group m-2">
+								<label for="exampleInputEmail1">Work</label>
+								<div class="input-group mb-2">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i class="fas fa-briefcase"></i>
+										</div>
+									</div>
+									<input type="text" required class="form-control"
+										id="exampleInputText" aria-describedby="emailHelp"
+										placeholder="work" name="work" th:value="${contact.work}">
+
+								</div>
+							</div>
+							<div class="form-group m-2">
+								<label for="exampleInputEmail1">Email</label>
+								<div class="input-group mb-2">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i>@</i>
+										</div>
+									</div>
+									<input type="email" required class="form-control"
+										id="exampleInputEmail1" aria-describedby="emailHelp"
+										placeholder="Enter email" name="email" th:value="${contact.email}">
+
+								</div>
+							</div>
+							<div class="form-group m-2">
+								<label for="exampleInputEmail1">Phone</label>
+								<div class="input-group mb-2">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<i class="fas fa-phone"></i>
+										</div>
+									</div>
+									<input type="number" maxlength="10" required
+										class="form-control" id="exampleInputText"
+										aria-describedby="emailHelp" placeholder="phone" name="phone" th:value="${contact.phone}">
+
+								</div>
+							</div>
+							<div class="form-group m-2">
+								<label for="exampleInputEmail1">Description</label>
+								<textarea name="description" id="#description" rows="10"
+									class="form-control" th:text="${contact.description}"></textarea>
+							</div>
+							<div style="display: flex; justify-content: center;">
+							<img class=""  id="output_image" style="width:250px;height:250px; border-radius:50%;"th:src="@{'/img/'+${contact.imageUrl}}" alt="profile photo" />
+							
+							</div>
+								
+
+							<div class="form-group m-3">
+								<label for="exampleFormControlFile1">UPLOAD NEW IMAGE</label>
+								<div>
+									<input type="file" class="form-control-file" name="image"
+										id="exampleFormControlFile1" onchange="preview_image(event)">
+								</div>
+							</div>
+							<div class="d-flex justify-content-center">
+								<button type="submit" class="btn btn-primary btn-lg m-2">SAVE</button>
+								<button type="reset" class="btn btn-primary btn-lg m-2">RESET</button>
+							</div>
+
+						</form>
+
+					</div>
+
+	</div>
+	</div>
+	</div>
+
+ <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+ <script>
+			tinymce.init({
+				selector : '#description'
+			});
+		</script>
+
+	</section>
+
+</body>
+</html>
